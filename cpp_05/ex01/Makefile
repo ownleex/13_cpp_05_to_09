@@ -6,7 +6,7 @@
 #    By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/29 22:07:14 by ayarmaya          #+#    #+#              #
-#    Updated: 2025/04/29 23:49:41 by ayarmaya         ###   ########.fr        #
+#    Updated: 2025/04/29 23:54:47 by ayarmaya         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ INCDIR 			:= include
 HEADERS 		:= -I./$(INCDIR)
 SRCDIR			:= src
 SRCS			:= $(SRCDIR)/main.cpp \
-        		   $(SRCDIR)/Bureaucrat.cpp
+        		   $(SRCDIR)/Bureaucrat.cpp \
+				   $(SRCDIR)/Form.cpp
 
 OBJDIR 			:= obj
 OBJS 			:= $(patsubst $(SRCDIR)/%.cpp, $(OBJDIR)/%.o, $(SRCS))
