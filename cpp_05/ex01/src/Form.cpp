@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 23:54:02 by ayarmaya          #+#    #+#             */
-/*   Updated: 2025/04/29 23:54:05 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2025/05/14 00:46:45 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,14 @@
 Form::Form() : _name("default"), _signed(false), _gradeToSign(150), _gradeToExecute(150) {
 }
 
-Form::Form(const std::string& name, int gradeToSign, int gradeToExecute) 
-    : _name(name), _signed(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute) {
+Form::Form(const std::string& name, int gradeToSign, int gradeToExecute) : _name(name), _signed(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute) {
     if (gradeToSign < 1 || gradeToExecute < 1)
         throw Form::GradeTooHighException();
     else if (gradeToSign > 150 || gradeToExecute > 150)
         throw Form::GradeTooLowException();
 }
 
-Form::Form(const Form& src) 
-    : _name(src._name), _signed(src._signed), 
+Form::Form(const Form& src) : _name(src._name), _signed(src._signed), 
       _gradeToSign(src._gradeToSign), _gradeToExecute(src._gradeToExecute) {
 }
 
