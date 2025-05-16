@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 00:15:16 by ayarmaya          #+#    #+#             */
-/*   Updated: 2025/04/30 00:15:26 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2025/05/15 20:11:52 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main() {
     std::cout << "=== Test des formulaires concrets ===" << std::endl;
     
     // Création des bureaucrates avec différents grades
-    Bureaucrat stagiaire("Stagiaire", 150);
+    Bureaucrat Apprenti("Apprenti", 150);
     Bureaucrat employe("Employé", 100);
     Bureaucrat manager("Manager", 50);
     Bureaucrat directeur("Directeur", 25);
@@ -32,14 +32,14 @@ int main() {
         ShrubberyCreationForm shrubberyForm("jardin");
         std::cout << shrubberyForm << std::endl;
         
-        std::cout << "\nTentative de signature par un stagiaire (grade 150): " << std::endl;
-        stagiaire.signForm(shrubberyForm);
+        std::cout << "\nTentative de signature par un Apprenti (grade 150): " << std::endl;
+        Apprenti.signForm(shrubberyForm);
         
         std::cout << "\nTentative de signature par un employé (grade 100): " << std::endl;
         employe.signForm(shrubberyForm);
         
-        std::cout << "\nTentative d'exécution par un stagiaire: " << std::endl;
-        stagiaire.executeForm(shrubberyForm);
+        std::cout << "\nTentative d'exécution par un Apprenti: " << std::endl;
+        Apprenti.executeForm(shrubberyForm);
         
         std::cout << "\nTentative d'exécution par un employé: " << std::endl;
         employe.executeForm(shrubberyForm);
@@ -58,12 +58,18 @@ int main() {
         
         std::cout << "\nTentative de signature par un manager (grade 50): " << std::endl;
         manager.signForm(robotomyForm);
+
+        std::cout << "\nTentative de signature par un president (grade 1): " << std::endl;
+        president.signForm(robotomyForm);
         
         std::cout << "\nTentative d'exécution par un employé: " << std::endl;
         employe.executeForm(robotomyForm);
         
         std::cout << "\nTentative d'exécution par un manager: " << std::endl;
         manager.executeForm(robotomyForm);
+
+        std::cout << "\nTentative d'exécution par un president: " << std::endl;
+        president.executeForm(robotomyForm);
     }
     catch (std::exception& e) {
         std::cout << "Exception inattendue: " << e.what() << std::endl;

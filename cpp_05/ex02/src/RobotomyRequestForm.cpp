@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 00:10:05 by ayarmaya          #+#    #+#             */
-/*   Updated: 2025/04/30 00:10:08 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2025/05/15 16:28:47 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void RobotomyRequestForm::action() const {
     
     // 50% de chances de réussite
     if (std::rand() % 2) {
-        std::cout << getTarget() << " a été robotomisé avec succès !" << std::endl;
+        std::cout << getTarget() << " a été robotomisé avec succès dans la moitié des cas !" << std::endl;
     } else {
         std::cout << "La robotomisation de " << getTarget() << " a échoué..." << std::endl;
     }

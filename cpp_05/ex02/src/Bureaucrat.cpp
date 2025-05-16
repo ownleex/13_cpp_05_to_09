@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 00:11:02 by ayarmaya          #+#    #+#             */
-/*   Updated: 2025/04/30 00:11:10 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2025/05/15 17:46:40 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void Bureaucrat::signForm(AForm& form) {
 }
 
 // Fonction pour exécuter un formulaire
-void Bureaucrat::executeForm(AForm const & form) const {
+void Bureaucrat::executeForm(AForm const& form) const {
     try {
         form.execute(*this);
         std::cout << _name << " a exécuté " << form.getName() << std::endl;

@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 00:09:15 by ayarmaya          #+#    #+#             */
-/*   Updated: 2025/04/30 00:09:17 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2025/05/15 17:53:06 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void AForm::beSigned(const Bureaucrat& bureaucrat) {
 }
 
 // Fonction d'exécution
-void AForm::execute(Bureaucrat const & executor) const {
+void AForm::execute(Bureaucrat const& executor) const {
     if (!_signed)
         throw AForm::FormNotSignedException();
     if (executor.getGrade() > _gradeToExecute)

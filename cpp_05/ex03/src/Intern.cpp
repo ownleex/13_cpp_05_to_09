@@ -6,32 +6,22 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 00:21:43 by ayarmaya          #+#    #+#             */
-/*   Updated: 2025/04/30 00:21:45 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2025/05/16 23:09:18 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Intern.hpp"
-
-// Initialisation des membres statiques
-const std::string Intern::FORM_NAMES[Intern::NB_FORMS] = {
-    "shrubbery creation",
-    "robotomy request",
-    "presidential pardon"
-};
-
-// Initialisation du tableau de pointeurs sur fonction membre
-const Intern::FormCreator Intern::FORM_CREATORS[Intern::NB_FORMS] = {
-    &Intern::createShrubberyForm,
-    &Intern::createRobotomyForm,
-    &Intern::createPresidentialPardonForm
-};
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include <iostream>
 
 // Constructeurs et destructeur
 Intern::Intern() {
 }
 
 Intern::Intern(const Intern& src) {
-    (void)src; // L'interne n'a pas d'attributs, donc rien à copier
+    *this = src;
 }
 
 Intern::~Intern() {
@@ -43,34 +33,36 @@ Intern& Intern::operator=(const Intern& rhs) {
     return *this;
 }
 
-// Méthodes privées pour créer chaque type de formulaire
-AForm* Intern::createShrubberyForm(const std::string& target) const {
-    return new ShrubberyCreationForm(target);
-}
-
-AForm* Intern::createRobotomyForm(const std::string& target) const {
-    return new RobotomyRequestForm(target);
-}
-
-AForm* Intern::createPresidentialPardonForm(const std::string& target) const {
-    return new PresidentialPardonForm(target);
-}
-
 // Méthode pour créer un formulaire
-AForm* Intern::makeForm(const std::string& formName, const std::string& target) const {
-    for (int i = 0; i < NB_FORMS; i++) {
-        if (formName == FORM_NAMES[i]) {
-            AForm* form = (this->*FORM_CREATORS[i])(target);
-            std::cout << "Intern crée " << form->getName() << std::endl;
-            return form;
-        }
+AForm* Intern::makeForm(const std::string& formName, const std::string& target) {
+    
+    std::string formNames[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
+    AForm* form = NULL;
+
+    int i;
+    for (i = 0; i < 3; i++) {
+        if (formName == formNames[i])
+            break;
+    }
+    switch (i) {
+        case 0:
+            form = new ShrubberyCreationForm(target);
+            break;
+        case 1:
+            form = new RobotomyRequestForm(target);
+            break;
+        case 2:
+            form = new PresidentialPardonForm(target);
+            break;
+        default:
+            throw Intern::InvalidForm();
     }
     
-    // Si on arrive ici, le formulaire n'a pas été trouvé
-    throw FormNotFoundException();
+    std::cout << "Intern crée " << form->getName() << std::endl;
+    return form;
 }
 
-// Exception pour formulaire non trouvé
-const char* Intern::FormNotFoundException::what() const throw() {
+// Exception personnalisée
+const char* Intern::InvalidForm::what() const throw() {
     return "Type de formulaire inconnu";
 }

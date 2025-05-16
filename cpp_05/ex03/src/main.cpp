@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 00:15:16 by ayarmaya          #+#    #+#             */
-/*   Updated: 2025/04/30 00:22:01 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2025/05/16 23:15:47 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ int main() {
     Bureaucrat manager("Manager", 50);
     Bureaucrat president("Président", 1);
     
-    // Test de création de formulaires valides
     std::cout << "\n--- Création de formulaires valides ---" << std::endl;
     
     try {
@@ -35,7 +34,7 @@ int main() {
         manager.signForm(*shrub);
         manager.executeForm(*shrub);
         
-        delete shrub; // Ne pas oublier de libérer la mémoire
+        delete shrub;
     }
     catch (std::exception& e) {
         std::cout << "Exception: " << e.what() << std::endl;
@@ -67,7 +66,6 @@ int main() {
         std::cout << "Exception: " << e.what() << std::endl;
     }
     
-    // Test de création d'un formulaire invalide
     std::cout << "\n--- Tentative de création d'un formulaire invalide ---" << std::endl;
     
     try {
@@ -80,7 +78,6 @@ int main() {
         std::cout << "Exception: " << e.what() << std::endl;
     }
     
-    // Test du scénario de l'exemple du sujet
     std::cout << "\n--- Scénario de l'exemple du sujet ---" << std::endl;
     
     try {
