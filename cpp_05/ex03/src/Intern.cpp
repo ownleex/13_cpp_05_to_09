@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 00:21:43 by ayarmaya          #+#    #+#             */
-/*   Updated: 2025/05/16 23:09:18 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2025/05/17 15:58:56 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ AForm* Intern::makeForm(const std::string& formName, const std::string& target) 
             form = new PresidentialPardonForm(target);
             break;
         default:
-            throw Intern::InvalidForm();
+            throw Intern::InvalidFormException();
     }
     
     std::cout << "Intern crée " << form->getName() << std::endl;
@@ -63,6 +63,6 @@ AForm* Intern::makeForm(const std::string& formName, const std::string& target) 
 }
 
 // Exception personnalisée
-const char* Intern::InvalidForm::what() const throw() {
+const char* Intern::InvalidFormException::what() const throw() {
     return "Type de formulaire inconnu";
 }
