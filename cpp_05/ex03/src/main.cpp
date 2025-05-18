@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 00:15:16 by ayarmaya          #+#    #+#             */
-/*   Updated: 2025/05/16 23:15:47 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2025/05/18 03:28:34 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@
 int main() {
     std::cout << "=== Test de l'Intern ===" << std::endl;
     
-    Intern anonymousIntern;
+    Intern intern;
     Bureaucrat manager("Manager", 50);
     Bureaucrat president("Président", 1);
     
     std::cout << "\n--- Création de formulaires valides ---" << std::endl;
     
     try {
-        AForm* shrub = anonymousIntern.makeForm("shrubbery creation", "jardin");
+        AForm* shrub = intern.makeForm("shrubbery creation", "jardin");
         std::cout << *shrub << std::endl;
         
         manager.signForm(*shrub);
@@ -41,7 +41,7 @@ int main() {
     }
     
     try {
-        AForm* robotomy = anonymousIntern.makeForm("robotomy request", "Bender");
+        AForm* robotomy = intern.makeForm("robotomy request", "Bender");
         std::cout << *robotomy << std::endl;
         
         manager.signForm(*robotomy);
@@ -54,7 +54,7 @@ int main() {
     }
     
     try {
-        AForm* pardon = anonymousIntern.makeForm("presidential pardon", "Ford Prefect");
+        AForm* pardon = intern.makeForm("presidential pardon", "Ford Prefect");
         std::cout << *pardon << std::endl;
         
         manager.signForm(*pardon);
@@ -69,7 +69,7 @@ int main() {
     std::cout << "\n--- Tentative de création d'un formulaire invalide ---" << std::endl;
     
     try {
-        AForm* invalidForm = anonymousIntern.makeForm("form inexistant", "cible");
+        AForm* invalidForm = intern.makeForm("form inexistant", "cible");
         std::cout << *invalidForm << std::endl; // Cette ligne ne devrait pas s'exécuter
         
         delete invalidForm;
