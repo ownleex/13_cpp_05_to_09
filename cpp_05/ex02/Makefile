@@ -6,7 +6,7 @@
 #    By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/30 00:12:50 by ayarmaya          #+#    #+#              #
-#    Updated: 2025/04/30 00:14:43 by ayarmaya         ###   ########.fr        #
+#    Updated: 2025/05/18 12:06:51 by ayarmaya         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ DEPS 			:= $(patsubst $(SRCDIR)/%.cpp, $(OBJDIR)/%.d, $(SRCS))
 all 			: $(NAME)
 
 $(NAME) 		: $(OBJS)
-	$(CC) $(OBJS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 $(OBJDIR)/%.o 	: $(SRCDIR)/%.cpp
 	@mkdir -p $(@D)
