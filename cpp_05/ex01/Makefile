@@ -6,13 +6,14 @@
 #    By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/29 22:07:14 by ayarmaya          #+#    #+#              #
-#    Updated: 2025/05/18 12:09:11 by ayarmaya         ###   ########.fr        #
+#    Updated: 2025/05/18 21:01:08 by ayarmaya         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			:= bureaucrat
 CC				:= c++
 CFLAGS			:= -Wall -Wextra -Werror -std=c++98 -MMD -MP
+LDFLAGS			:= -std=c++98 -MMD -MP
 RM				:= rm -f
 RMDIR 			:= rm -rf
 INCDIR 			:= include
@@ -33,7 +34,7 @@ $(NAME) 		: $(OBJS)
 
 $(OBJDIR)/%.o 	: $(SRCDIR)/%.cpp
 	@mkdir -p $(@D)
-	$(CC) $(CFLAGS) $(HEADERS) -c $< -o $@
+	$(CC) $(LDFLAGS) $(HEADERS) -c $< -o $@
 
 clean:
 	$(RMDIR) $(OBJDIR)
