@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 23:54:20 by ayarmaya          #+#    #+#             */
-/*   Updated: 2025/04/29 23:54:22 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2025/05/18 02:44:15 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int main() {
         Form form("Permis de construire", 50, 25);
         std::cout << form << std::endl;
         
-        std::cout << "\nTest de la construction avec grade trop élevé: " << std::endl;
+        std::cout << "\nCréation d'un formulaire avec grade trop élevé: " << std::endl;
         Form formInvalid1("Trop élevé", 0, 25);
         std::cout << "Cette ligne ne devrait pas s'afficher" << std::endl;
     }
@@ -31,7 +31,7 @@ int main() {
     }
     
     try {
-        std::cout << "\nTest de la construction avec grade trop bas: " << std::endl;
+        std::cout << "\nCréation d'un formulaire avec grade trop bas: " << std::endl;
         Form formInvalid2("Trop bas", 50, 151);
         std::cout << "Cette ligne ne devrait pas s'afficher" << std::endl;
     }
@@ -57,9 +57,6 @@ int main() {
         
         std::cout << "\nÉtat du formulaire après tentatives: " << std::endl;
         std::cout << taxForm << std::endl;
-        
-        std::cout << "\nNouvelle tentative de signature (déjà signé): " << std::endl;
-        alice.signForm(taxForm);
     }
     catch (std::exception& e) {
         std::cout << "Exception inattendue: " << e.what() << std::endl;
